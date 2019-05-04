@@ -1,0 +1,18 @@
+
+  
+  <div class="survey-btn">
+   
+      <mat-form-field class="example-full-width" style="padding-right:10px">
+        <input matInput placeholder="Survey Name" [(ngModel)]="createSurvey.name" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+      <button mat-raised-button color="accent" (click)="create()">Create Survey</button>
+    
+  </div>
+  <div style="padding:10px" *ngIf="surveyList.length > 0">
+    <div *ngFor="let item of surveyList" style="padding:10px">
+      <mat-card class="survey-card">
+        <a routerLink="/surveyDetails" (click)="getSuveyName(item)">{{item.surveyName}}</a>
+      </mat-card>
+    </div>
+  
+  </div>

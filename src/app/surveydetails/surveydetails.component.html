@@ -1,0 +1,41 @@
+<div class="survey-btn">
+    <form class="example-form">
+      <!-- <mat-form-field class="example-full-width" style="padding-right:10px">
+        <input matInput placeholder="Survey Name" >
+      </mat-form-field> -->
+      <button mat-raised-button color="accent" (click)="openDialog(template)">Add Questions for {{surveyName}} Survey</button>
+    </form>
+  </div>
+<div>
+    <div *ngFor="let item of questions" style="padding:10px">
+        <mat-card class="survey-card">
+          <a>{{item.question}}</a>
+        </mat-card>
+      </div>
+</div>
+  <ng-template #template>
+<div>
+    <mat-dialog-content>
+  <form class="example-container">
+      <mat-form-field class="example-full-width padding">
+          <input matInput placeholder="Question" [(ngModel)]="ques.question" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <div class="ico">
+            <!-- <button mat-mini-fab color="accent">Add Radio button</button>
+            <button mat-mini-fab color="warn">Warn</button> -->
+            <button mat-raised-button color="primary" (click)="addRadio()">Add radio buttons</button>
+            <button mat-raised-button color="primary" (click)="addcheck()">Add check boxes</button>
+          
+        </div>
+        <div *ngIf="show">
+          <div *ngFor="let item of options">
+            <mat-form-field class="example-full-width padding">
+                <input matInput placeholder="Option Value"  >
+              </mat-form-field>
+            </div>
+        </div>
+        <button mat-raised-button color="accent" (click)="add()">Add</button>
+  </form>
+</mat-dialog-content>
+</div>
+  </ng-template>
